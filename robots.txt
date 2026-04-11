@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zawato.github.io/sitemap.xml

@@ -674,6 +674,209 @@ body {
 }
 
 /* ========================================
+   Blog Feature Card
+   ======================================== */
+
+.blog-feature-card {
+  display: block;
+  text-decoration: none;
+  color: var(--text);
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: all var(--transition);
+  overflow: hidden;
+  animation: fadeInUp 0.5s ease backwards;
+}
+
+.blog-feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--primary);
+}
+
+.blog-feature-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.blog-feature-icon {
+  font-size: 2rem;
+  color: white;
+  min-width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px var(--primary-glow);
+}
+
+.blog-feature-body {
+  flex: 1;
+}
+
+.blog-feature-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.4rem;
+}
+
+.blog-feature-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.blog-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.blog-tag {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.2rem 0.65rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  color: var(--text-muted);
+  transition: all var(--transition);
+}
+
+.blog-feature-card:hover .blog-tag {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.blog-feature-arrow {
+  font-size: 1.1rem;
+  color: var(--primary);
+  opacity: 0.6;
+  transition: all var(--transition);
+  flex-shrink: 0;
+}
+
+.blog-feature-card:hover .blog-feature-arrow {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+@media (max-width: 540px) {
+  .blog-feature-inner {
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+  .blog-feature-arrow {
+    display: none;
+  }
+}
+
+/* ========================================
+   Skills Section
+   ======================================== */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 600px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.skill-group {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow);
+  transition: all var(--transition);
+  animation: fadeInUp 0.5s ease backwards;
+}
+
+.skill-group:nth-child(1) { animation-delay: 0.1s; }
+.skill-group:nth-child(2) { animation-delay: 0.2s; }
+.skill-group:nth-child(3) { animation-delay: 0.3s; }
+
+.skill-group:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--primary);
+}
+
+.skill-group-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.skill-group-title i {
+  color: var(--accent);
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.skill-tag {
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.3rem 0.75rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  color: var(--text);
+  transition: all var(--transition);
+  cursor: default;
+}
+
+.skill-tag:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--card-bg);
+}
+
+/* ========================================
+   Footer links
+   ======================================== */
+
+.footer-links {
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+}
+
+/* ========================================
    my-link page specific styles
    ======================================== */
 
