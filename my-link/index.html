@@ -4,49 +4,62 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="zawato - リンク集 | SNS、ブログ、プロジェクトへのリンクをまとめています">
-  <meta name="robots" content="index, follow">
   <title>リンク集 | zawato</title>
-  
-  <!-- Font Awesome for icons -->
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+
   <!-- Custom Styles -->
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <div class="header-container">
-      <h1 class="site-title">zawato リンク集</h1>
-      <p class="site-subtitle">SNS、ブログ、プロジェクトへのリンクをまとめています</p>
-    </div>
-  </header>
+  <!-- Particles -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Dark mode toggle -->
+  <button class="theme-toggle" id="themeToggle" aria-label="テーマ切替">
+    <i class="fas fa-moon"></i>
+  </button>
 
   <!-- Main Content -->
-  <main class="main-content">
+  <main class="main-content" style="padding-top: 5rem;">
+    <!-- Back link -->
+    <a href="../" class="back-link">
+      <i class="fas fa-arrow-left"></i> ホームに戻る
+    </a>
+
+    <!-- Page header -->
+    <div class="page-header">
+      <h1 class="page-title">リンク集</h1>
+      <p class="page-subtitle">SNS、ブログ、プロジェクトへのリンクをまとめています</p>
+    </div>
+
     <!-- SNS Section -->
     <section class="category-section">
       <h2 class="category-title">
-        <i class="fas fa-share-alt category-icon"></i>
-        SNS
+        <i class="fas fa-share-alt"></i> SNS
       </h2>
-      <div class="links-container">
-        <!-- Twitter/X -->
+      <div class="links-grid">
         <a href="https://twitter.com/your-handle" class="link-card" target="_blank" rel="noopener noreferrer">
+          <div class="card-bg"></div>
           <div class="link-icon">
-            <i class="fab fa-twitter"></i>
+            <i class="fab fa-x-twitter"></i>
           </div>
           <div class="link-content">
             <h3 class="link-title">Twitter / X</h3>
             <p class="link-description">日々の技術的な発見や考えをシェアしています</p>
           </div>
-          <div class="link-arrow">
-            <i class="fas fa-arrow-right"></i>
-          </div>
+          <div class="link-arrow"><i class="fas fa-arrow-right"></i></div>
+          <div class="card-shine"></div>
         </a>
 
-        <!-- GitHub -->
         <a href="https://github.com/zawato" class="link-card" target="_blank" rel="noopener noreferrer">
+          <div class="card-bg"></div>
           <div class="link-icon">
             <i class="fab fa-github"></i>
           </div>
@@ -54,13 +67,12 @@
             <h3 class="link-title">GitHub</h3>
             <p class="link-description">オープンソースプロジェクトやコードサンプル</p>
           </div>
-          <div class="link-arrow">
-            <i class="fas fa-arrow-right"></i>
-          </div>
+          <div class="link-arrow"><i class="fas fa-arrow-right"></i></div>
+          <div class="card-shine"></div>
         </a>
 
-        <!-- LinkedIn -->
         <a href="https://linkedin.com/in/your-profile" class="link-card" target="_blank" rel="noopener noreferrer">
+          <div class="card-bg"></div>
           <div class="link-icon">
             <i class="fab fa-linkedin"></i>
           </div>
@@ -68,9 +80,8 @@
             <h3 class="link-title">LinkedIn</h3>
             <p class="link-description">プロフェッショナルなネットワーク</p>
           </div>
-          <div class="link-arrow">
-            <i class="fas fa-arrow-right"></i>
-          </div>
+          <div class="link-arrow"><i class="fas fa-arrow-right"></i></div>
+          <div class="card-shine"></div>
         </a>
       </div>
     </section>
@@ -78,12 +89,11 @@
     <!-- Blog & Portfolio Section -->
     <section class="category-section">
       <h2 class="category-title">
-        <i class="fas fa-blog category-icon"></i>
-        ブログ・ポートフォリオ
+        <i class="fas fa-pen-nib"></i> ブログ・ポートフォリオ
       </h2>
-      <div class="links-container">
-        <!-- Main Blog -->
-        <a href="https://zawato.jp" class="link-card" target="_blank" rel="noopener noreferrer">
+      <div class="links-grid">
+        <a href="https://zawato.jp" class="link-card featured" target="_blank" rel="noopener noreferrer">
+          <div class="card-bg"></div>
           <div class="link-icon">
             <i class="fas fa-home"></i>
           </div>
@@ -91,13 +101,12 @@
             <h3 class="link-title">zawato.jp</h3>
             <p class="link-description">メインブログ - データサイエンス、プログラミング、資格に関する記事</p>
           </div>
-          <div class="link-arrow">
-            <i class="fas fa-arrow-right"></i>
-          </div>
+          <div class="link-arrow"><i class="fas fa-arrow-right"></i></div>
+          <div class="card-shine"></div>
         </a>
 
-        <!-- Portfolio -->
         <a href="#" class="link-card" target="_blank" rel="noopener noreferrer">
+          <div class="card-bg"></div>
           <div class="link-icon">
             <i class="fas fa-briefcase"></i>
           </div>
@@ -105,9 +114,8 @@
             <h3 class="link-title">ポートフォリオ</h3>
             <p class="link-description">プロジェクトや実績をまとめたポートフォリオサイト</p>
           </div>
-          <div class="link-arrow">
-            <i class="fas fa-arrow-right"></i>
-          </div>
+          <div class="link-arrow"><i class="fas fa-arrow-right"></i></div>
+          <div class="card-shine"></div>
         </a>
       </div>
     </section>
@@ -115,12 +123,11 @@
     <!-- Projects Section -->
     <section class="category-section">
       <h2 class="category-title">
-        <i class="fas fa-code category-icon"></i>
-        プロジェクト
+        <i class="fas fa-code"></i> プロジェクト
       </h2>
-      <div class="links-container">
-        <!-- Project 1 -->
+      <div class="links-grid">
         <a href="#" class="link-card" target="_blank" rel="noopener noreferrer">
+          <div class="card-bg"></div>
           <div class="link-icon">
             <i class="fas fa-rocket"></i>
           </div>
@@ -128,9 +135,8 @@
             <h3 class="link-title">プロジェクト名</h3>
             <p class="link-description">プロジェクトの簡単な説明をここに記載</p>
           </div>
-          <div class="link-arrow">
-            <i class="fas fa-arrow-right"></i>
-          </div>
+          <div class="link-arrow"><i class="fas fa-arrow-right"></i></div>
+          <div class="card-shine"></div>
         </a>
       </div>
     </section>
@@ -138,12 +144,11 @@
     <!-- Contact Section -->
     <section class="category-section">
       <h2 class="category-title">
-        <i class="fas fa-envelope category-icon"></i>
-        お問い合わせ
+        <i class="fas fa-envelope"></i> お問い合わせ
       </h2>
-      <div class="links-container">
-        <!-- Email -->
+      <div class="links-grid">
         <a href="mailto:your-email@example.com" class="link-card">
+          <div class="card-bg"></div>
           <div class="link-icon">
             <i class="fas fa-at"></i>
           </div>
@@ -151,9 +156,8 @@
             <h3 class="link-title">Email</h3>
             <p class="link-description">お仕事のご依頼やお問い合わせはこちら</p>
           </div>
-          <div class="link-arrow">
-            <i class="fas fa-arrow-right"></i>
-          </div>
+          <div class="link-arrow"><i class="fas fa-arrow-right"></i></div>
+          <div class="card-shine"></div>
         </a>
       </div>
     </section>
@@ -161,7 +165,12 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <p>&copy; 2026 zawato. All rights reserved. | <a href="https://zawato.jp">zawato.jp</a></p>
+    <div class="footer-inner">
+      <p class="footer-brand">zawato</p>
+      <p class="footer-copy">&copy; 2026 zawato. All rights reserved.</p>
+    </div>
   </footer>
+
+  <script src="../js/main.js"></script>
 </body>
 </html>
