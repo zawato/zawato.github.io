@@ -21,11 +21,6 @@
 
   <title>リンク集 | zawato</title>
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -33,22 +28,26 @@
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-  <!-- Particles -->
-  <canvas id="particles-canvas"></canvas>
 
-  <!-- Dark mode toggle -->
-  <button class="theme-toggle" id="themeToggle" aria-label="テーマ切替">
-    <i class="fas fa-moon"></i>
-  </button>
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../" class="site-logo">zawato</a>
+      <nav class="header-nav" aria-label="メインナビゲーション">
+        <a href="https://zawato.jp" target="_blank" rel="noopener me">ブログ</a>
+        <a href="./" aria-current="page">リンク集</a>
+        <a href="https://github.com/zawato" target="_blank" rel="noopener me">GitHub</a>
+      </nav>
+    </div>
+  </header>
 
   <!-- Main Content -->
-  <main class="main-content" style="padding-top: 5rem;">
-    <!-- Back link -->
+  <main class="main-content">
+
     <a href="../" class="back-link">
       <i class="fas fa-arrow-left"></i> ホームに戻る
     </a>
 
-    <!-- Page header -->
     <div class="page-header">
       <h1 class="page-title">リンク集</h1>
       <p class="page-subtitle">SNS・ブログ・プロジェクトへのリンクをまとめています</p>
@@ -56,130 +55,98 @@
 
     <!-- Blog Section -->
     <section class="category-section">
-      <h2 class="category-title">
-        <i class="fas fa-blog"></i> ブログ
-      </h2>
+      <h2 class="category-title"><i class="fas fa-blog"></i> ブログ</h2>
       <div class="links-grid">
         <a href="https://zawato.jp" class="link-card featured" target="_blank" rel="noopener me">
-          <div class="card-bg"></div>
-          <div class="link-icon">
-            <i class="fas fa-home"></i>
-          </div>
+          <div class="link-icon"><i class="fas fa-home"></i></div>
           <div class="link-content">
             <h3 class="link-title">zawato.jp</h3>
             <p class="link-description">メインブログ — データサイエンス・機械学習・プログラミング・資格に関する記事を発信</p>
           </div>
-          <div class="link-arrow"><i class="fas fa-arrow-right"></i></div>
-          <div class="card-shine"></div>
+          <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
         </a>
       </div>
     </section>
 
     <!-- SNS Section -->
     <section class="category-section">
-      <h2 class="category-title">
-        <i class="fas fa-share-alt"></i> SNS
-      </h2>
+      <h2 class="category-title"><i class="fas fa-share-alt"></i> SNS</h2>
       <div class="links-grid">
         <a href="https://github.com/zawato" class="link-card" target="_blank" rel="noopener me">
-          <div class="card-bg"></div>
-          <div class="link-icon">
-            <i class="fab fa-github"></i>
-          </div>
+          <div class="link-icon"><i class="fab fa-github"></i></div>
           <div class="link-content">
             <h3 class="link-title">GitHub</h3>
             <p class="link-description">オープンソースプロジェクトやコードサンプル</p>
           </div>
-          <div class="link-arrow"><i class="fas fa-arrow-right"></i></div>
-          <div class="card-shine"></div>
+          <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
         </a>
 
-        <!-- Twitter/X: URLをご自身のものに変更してください -->
+        <!-- Twitter/X: URLをご自身のものに変更してコメントを外してください -->
         <!-- <a href="https://twitter.com/your-handle" class="link-card" target="_blank" rel="noopener me">
-          <div class="card-bg"></div>
           <div class="link-icon"><i class="fab fa-x-twitter"></i></div>
           <div class="link-content">
             <h3 class="link-title">Twitter / X</h3>
             <p class="link-description">日々の技術的な発見や考えをシェアしています</p>
           </div>
-          <div class="link-arrow"><i class="fas fa-arrow-right"></i></div>
-          <div class="card-shine"></div>
+          <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
         </a> -->
 
-        <!-- LinkedIn: URLをご自身のものに変更してください -->
+        <!-- LinkedIn: URLをご自身のものに変更してコメントを外してください -->
         <!-- <a href="https://linkedin.com/in/your-profile" class="link-card" target="_blank" rel="noopener me">
-          <div class="card-bg"></div>
           <div class="link-icon"><i class="fab fa-linkedin"></i></div>
           <div class="link-content">
             <h3 class="link-title">LinkedIn</h3>
             <p class="link-description">プロフェッショナルなネットワーク</p>
           </div>
-          <div class="link-arrow"><i class="fas fa-arrow-right"></i></div>
-          <div class="card-shine"></div>
+          <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
         </a> -->
       </div>
     </section>
 
     <!-- Portfolio Section -->
     <section class="category-section">
-      <h2 class="category-title">
-        <i class="fas fa-briefcase"></i> ポートフォリオ
-      </h2>
+      <h2 class="category-title"><i class="fas fa-briefcase"></i> ポートフォリオ</h2>
       <div class="links-grid">
         <a href="https://zawato.github.io" class="link-card" target="_blank" rel="noopener">
-          <div class="card-bg"></div>
-          <div class="link-icon">
-            <i class="fas fa-user"></i>
-          </div>
+          <div class="link-icon"><i class="fas fa-user"></i></div>
           <div class="link-content">
             <h3 class="link-title">zawato.github.io</h3>
             <p class="link-description">スキル・プロジェクトをまとめたポートフォリオサイト</p>
           </div>
-          <div class="link-arrow"><i class="fas fa-arrow-right"></i></div>
-          <div class="card-shine"></div>
+          <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
         </a>
       </div>
     </section>
 
-    <!-- Projects Section -->
-    <!-- プロジェクトがあれば以下のブロックを使ってください -->
+    <!-- Projects: プロジェクトがあれば以下を使ってください -->
     <!--
     <section class="category-section">
-      <h2 class="category-title">
-        <i class="fas fa-code"></i> プロジェクト
-      </h2>
+      <h2 class="category-title"><i class="fas fa-code"></i> プロジェクト</h2>
       <div class="links-grid">
         <a href="https://github.com/zawato/your-project" class="link-card" target="_blank" rel="noopener">
-          <div class="card-bg"></div>
           <div class="link-icon"><i class="fas fa-rocket"></i></div>
           <div class="link-content">
             <h3 class="link-title">プロジェクト名</h3>
             <p class="link-description">プロジェクトの簡単な説明をここに記載</p>
           </div>
-          <div class="link-arrow"><i class="fas fa-arrow-right"></i></div>
-          <div class="card-shine"></div>
+          <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
         </a>
       </div>
     </section>
     -->
 
-    <!-- Contact Section -->
-    <!-- メールアドレスを設定する場合はコメントを外してください -->
+    <!-- Contact: メールアドレスを設定する場合はコメントを外してください -->
     <!--
     <section class="category-section">
-      <h2 class="category-title">
-        <i class="fas fa-envelope"></i> お問い合わせ
-      </h2>
+      <h2 class="category-title"><i class="fas fa-envelope"></i> お問い合わせ</h2>
       <div class="links-grid">
         <a href="mailto:your-email@example.com" class="link-card">
-          <div class="card-bg"></div>
           <div class="link-icon"><i class="fas fa-at"></i></div>
           <div class="link-content">
             <h3 class="link-title">Email</h3>
             <p class="link-description">お仕事のご依頼やお問い合わせはこちら</p>
           </div>
-          <div class="link-arrow"><i class="fas fa-arrow-right"></i></div>
-          <div class="card-shine"></div>
+          <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
         </a>
       </div>
     </section>
@@ -195,6 +162,8 @@
         <a href="https://zawato.jp" target="_blank" rel="noopener me">zawato.jp</a>
         &nbsp;·&nbsp;
         <a href="https://github.com/zawato" target="_blank" rel="noopener me">GitHub</a>
+        &nbsp;·&nbsp;
+        <a href="../">ホーム</a>
       </p>
       <p class="footer-copy">&copy; 2026 zawato. All rights reserved.</p>
     </div>
