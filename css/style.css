@@ -27,6 +27,15 @@
    Reset & Base
    ======================================== */
 
+/* prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .cursor { animation: none; opacity: 1; }
+}
+
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -147,6 +156,14 @@ a:hover {
   font-size: 2rem;
   color: white;
   flex-shrink: 0;
+  overflow: hidden;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .hero-name {
@@ -223,6 +240,21 @@ a:hover {
   font-family: var(--font);
 }
 
+.btn-primary {
+  background: #ffffff;
+  color: var(--primary);
+  border-color: #ffffff;
+  font-size: 1rem;
+  padding: 0.7rem 1.8rem;
+}
+
+.btn-primary:hover {
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+}
+
 .btn-white {
   background: #ffffff;
   color: var(--primary);
@@ -252,6 +284,28 @@ a:hover {
 /* ========================================
    Main Content
    ======================================== */
+
+.btn-outline-sm {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1.1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: var(--radius);
+  border: 2px solid var(--border-card);
+  color: var(--primary);
+  text-decoration: none;
+  transition: all var(--transition);
+  font-family: var(--font);
+}
+
+.btn-outline-sm:hover {
+  border-color: var(--primary);
+  background: rgba(2, 37, 99, 0.05);
+  color: var(--primary);
+  transform: translateY(-1px);
+}
 
 .main-content {
   max-width: var(--max-width);
@@ -442,7 +496,7 @@ a:hover {
 
 @media (min-width: 600px) {
   .skills-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -594,6 +648,167 @@ a:hover {
 
 /* Unused in new design but kept for compatibility */
 .card-bg, .card-shine { display: none; }
+
+/* ========================================
+   Latest Posts Section
+   ======================================== */
+
+.latest-posts-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+
+@media (min-width: 600px) {
+  .latest-posts-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.post-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  border: 2px solid var(--border-card);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--text);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: all var(--transition);
+}
+
+.post-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+  color: var(--text);
+}
+
+.post-card-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  background: var(--bg-alt);
+}
+
+.post-card-body {
+  padding: 0.85rem 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.post-card-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.post-card:hover .post-card-title {
+  color: var(--primary);
+}
+
+.post-card-meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: auto;
+}
+
+.post-card-meta i {
+  color: var(--link);
+  font-size: 0.7rem;
+}
+
+.post-card-date {
+  font-variant-numeric: tabular-nums;
+}
+
+.post-card-read {
+  margin-left: auto;
+  background: var(--bg-alt);
+  padding: 0.1rem 0.45rem;
+  border-radius: 2px;
+  font-size: 0.7rem;
+}
+
+.latest-posts-more {
+  text-align: right;
+}
+
+/* ========================================
+   Top Repos Section
+   ======================================== */
+
+.repo-card {
+  position: relative;
+  background: var(--bg);
+  border: 2px solid var(--border-card);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  text-decoration: none;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  box-shadow: var(--shadow);
+  transition: all var(--transition);
+}
+
+.repo-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+  color: var(--text);
+}
+
+.repo-card-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--link);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.repo-card:hover .repo-card-name {
+  color: var(--link-hover);
+}
+
+.repo-card-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.repo-card-meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+.repo-card-meta i {
+  color: var(--primary);
+  opacity: 0.7;
+}
 
 /* ========================================
    Footer  (matches zawato.jp footer)

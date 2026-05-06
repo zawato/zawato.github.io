@@ -8,18 +8,27 @@
   <meta name="author" content="zawato">
   <link rel="canonical" href="https://zawato.github.io/">
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
   <!-- Open Graph -->
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://zawato.github.io/">
   <meta property="og:title" content="zawato - Data Scientist & Programmer">
   <meta property="og:description" content="データサイエンス・プログラミング・資格をテーマにしたブログ zawato.jp の運営者。スキルやプロジェクトをまとめたポートフォリオサイトです。">
+  <meta property="og:image" content="https://zawato.github.io/images/og.png">
   <meta property="og:site_name" content="zawato.github.io">
   <meta property="profile:username" content="zawato">
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="zawato - Data Scientist & Programmer">
   <meta name="twitter:description" content="データサイエンス・プログラミング・資格をテーマにしたブログ zawato.jp の運営者。">
+  <meta name="twitter:image" content="https://zawato.github.io/images/og.png">
+
+  <!-- RSS alternate -->
+  <link rel="alternate" type="application/rss+xml" title="zawato.jp" href="https://zawato.jp/feed/">
 
   <title>zawato - Portfolio</title>
 
@@ -68,7 +77,7 @@
     <div class="hero-inner">
       <div class="hero-profile">
         <div class="avatar">
-          <i class="fas fa-user-astronaut"></i>
+          <img src="images/avatar.svg" alt="zawato" width="80" height="80">
         </div>
         <div>
           <h1 class="hero-name">zawato</h1>
@@ -83,7 +92,7 @@
         <span class="badge"><i class="fas fa-certificate"></i> Certification</span>
       </div>
       <div class="hero-cta">
-        <a href="https://zawato.jp" class="btn btn-white" target="_blank" rel="noopener me">
+        <a href="https://zawato.jp" class="btn btn-primary" target="_blank" rel="noopener me">
           <i class="fas fa-blog"></i> ブログを読む
         </a>
         <a href="my-link/" class="btn btn-outline">
@@ -96,22 +105,50 @@
   <!-- Main Content -->
   <main class="main-content">
 
-    <!-- Stats Section -->
-    <section class="stats-section" aria-label="実績">
-      <div class="stat-card">
-        <div class="stat-icon"><i class="fas fa-pen-nib"></i></div>
-        <div class="stat-value" data-target="50">0</div>
-        <div class="stat-label">記事</div>
+    <!-- Latest Posts Section -->
+    <section class="category-section latest-posts-section">
+      <h2 class="section-title">最新記事</h2>
+      <div class="latest-posts-grid">
+        <!-- LATEST_POSTS_START -->
+<a href="https://zawato.jp/programming/2058/" class="post-card" target="_blank" rel="noopener">
+          
+          <div class="post-card-body">
+            <p class="post-card-title">Claude CodeにGmail・Googleカレンダーを接続する方法【MCP】【VSCode】</p>
+            <span class="post-card-meta">
+              <i class="fas fa-calendar-alt"></i>
+              <span class="post-card-date">2026年4月20日</span>
+              <span class="post-card-read">1 min</span>
+            </span>
+          </div>
+        </a>
+        <a href="https://zawato.jp/data-science/stats/2002/" class="post-card" target="_blank" rel="noopener">
+          
+          <div class="post-card-body">
+            <p class="post-card-title">【統計検定準１級】2017年6月 選択問題及び部分記述問題 問14【解答例・解説】</p>
+            <span class="post-card-meta">
+              <i class="fas fa-calendar-alt"></i>
+              <span class="post-card-date">2026年3月12日</span>
+              <span class="post-card-read">1 min</span>
+            </span>
+          </div>
+        </a>
+        <a href="https://zawato.jp/data-science/stats/1997/" class="post-card" target="_blank" rel="noopener">
+          
+          <div class="post-card-body">
+            <p class="post-card-title">【統計検定準１級】2017年6月 選択問題及び部分記述問題 問13【解答例・解説】</p>
+            <span class="post-card-meta">
+              <i class="fas fa-calendar-alt"></i>
+              <span class="post-card-date">2026年3月12日</span>
+              <span class="post-card-read">1 min</span>
+            </span>
+          </div>
+        </a>
+        <!-- LATEST_POSTS_END -->
       </div>
-      <div class="stat-card">
-        <div class="stat-icon"><i class="fab fa-github"></i></div>
-        <div class="stat-value" data-target="30">0</div>
-        <div class="stat-label">リポジトリ</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon"><i class="fas fa-star"></i></div>
-        <div class="stat-value" data-target="5">0</div>
-        <div class="stat-label">年の経験</div>
+      <div class="latest-posts-more">
+        <a href="https://zawato.jp" class="btn btn-outline-sm" target="_blank" rel="noopener me">
+          <i class="fas fa-list"></i> 記事一覧を見る
+        </a>
       </div>
     </section>
 
@@ -140,6 +177,27 @@
       </a>
     </section>
 
+    <!-- Stats Section -->
+    <section class="stats-section" aria-label="実績">
+      <!-- STATS_START -->
+<div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-pen-nib"></i></div>
+        <div class="stat-value" data-target="140">140</div>
+        <div class="stat-label">記事</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fab fa-github"></i></div>
+        <div class="stat-value" data-target="21">21</div>
+        <div class="stat-label">リポジトリ</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-star"></i></div>
+        <div class="stat-value" data-target="5">5</div>
+        <div class="stat-label">年の経験</div>
+      </div>
+        <!-- STATS_END -->
+    </section>
+
     <!-- Skills Section -->
     <section class="category-section">
       <h2 class="section-title">スキル</h2>
@@ -152,27 +210,38 @@
             <span class="skill-tag">SQL</span>
             <span class="skill-tag">Pandas</span>
             <span class="skill-tag">NumPy</span>
-            <span class="skill-tag">Matplotlib</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <h3 class="skill-group-title"><i class="fas fa-brain"></i> 機械学習</h3>
-          <div class="skill-tags">
             <span class="skill-tag">scikit-learn</span>
             <span class="skill-tag">TensorFlow</span>
-            <span class="skill-tag">PyTorch</span>
             <span class="skill-tag">統計解析</span>
           </div>
         </div>
         <div class="skill-group">
-          <h3 class="skill-group-title"><i class="fas fa-tools"></i> 開発環境</h3>
+          <h3 class="skill-group-title"><i class="fas fa-tools"></i> エンジニアリング</h3>
           <div class="skill-tags">
             <span class="skill-tag">Git</span>
             <span class="skill-tag">Linux</span>
             <span class="skill-tag">Docker</span>
             <span class="skill-tag">Jupyter</span>
+            <span class="skill-tag">Matplotlib</span>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Top Repos Section -->
+    <section class="category-section top-repos-section">
+      <h2 class="section-title">主要リポジトリ</h2>
+      <div class="links-grid">
+        <!-- TOP_REPOS_START -->
+<a href="https://github.com/zawato" class="link-card" target="_blank" rel="noopener me">
+          <div class="link-icon"><i class="fab fa-github"></i></div>
+          <div class="link-content">
+            <h3 class="link-title">GitHub</h3>
+            <p class="link-description">すべてのリポジトリを見る</p>
+          </div>
+          <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
+        </a>
+        <!-- TOP_REPOS_END -->
       </div>
     </section>
 

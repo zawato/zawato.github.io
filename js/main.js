@@ -14,8 +14,15 @@ let charIndex   = 0;
 let isDeleting  = false;
 const typedEl   = document.getElementById('typedText');
 
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 function typeLoop() {
   if (!typedEl) return;
+
+  if (reducedMotion) {
+    typedEl.textContent = phrases[0];
+    return;
+  }
 
   const current = phrases[phraseIndex];
 
@@ -35,7 +42,7 @@ function typeLoop() {
       setTimeout(typeLoop, 1800);
       return;
     }
-    setTimeout(typeLoop, 85);
+    setTimeout(typeLoop, 95);
   }
 }
 
@@ -47,6 +54,10 @@ setTimeout(typeLoop, 600);
 
 function animateCount(el, target, duration) {
   duration = duration || 1000;
+  if (reducedMotion) {
+    el.textContent = target;
+    return;
+  }
   let start = 0;
   const step = target / (duration / 16);
   const timer = setInterval(function () {

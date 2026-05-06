@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96">
+  <circle cx="48" cy="48" r="48" fill="#022563"/>
+  <circle cx="48" cy="48" r="44" fill="none" stroke="#0095d9" stroke-width="2"/>
+  <text x="48" y="62" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="44" font-weight="700" text-anchor="middle" fill="#ffffff" letter-spacing="-2">z</text>
+</svg>
