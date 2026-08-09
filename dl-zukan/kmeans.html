@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="点をいくつかのグループに分ける教師なし学習の代表格。 重心の移動と割り当ての繰り返しで、ラベルなしでも構造が見つかる。">
+  <meta name="author" content="zawato">
+  <meta name="theme-color" content="#0D1117">
+  <link rel="canonical" href="https://zawato.github.io/dl-zukan/kmeans/">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://zawato.github.io/dl-zukan/kmeans/">
+  <meta property="og:title" content="k-means法 | ディープラーニング図鑑">
+  <meta property="og:description" content="点をいくつかのグループに分ける教師なし学習の代表格。 重心の移動と割り当ての繰り返しで、ラベルなしでも構造が見つかる。">
+  <meta property="og:image" content="https://zawato.github.io/videos/dl-zukan/kmeans.jpg">
+  <meta property="og:site_name" content="zawato.github.io">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="k-means法 | ディープラーニング図鑑">
+  <meta name="twitter:description" content="点をいくつかのグループに分ける教師なし学習の代表格。 重心の移動と割り当ての繰り返しで、ラベルなしでも構造が見つかる。">
+  <meta name="twitter:image" content="https://zawato.github.io/videos/dl-zukan/kmeans.jpg">
+
+  <title>k-means法 | ディープラーニング図鑑</title>
+
+  <!-- 図鑑専用のスタイル（zawato/dl-zukan/scripts/build_site.py が design_tokens.yaml から生成する） -->
+  <link rel="stylesheet" href="/css/dl-zukan.css">
+</head>
+<body class="zk-layout-entry">
+
+  <header class="zk-header">
+    <div class="zk-header-inner">
+      <a href="/dl-zukan/" class="zk-brand" aria-label="ディープラーニング図鑑 トップへ">
+        <svg width="26" height="26" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M8 8 L16 6 M8 8 L16 16 M8 16 L16 6 M8 16 L16 16 M8 24 L16 16 M8 24 L16 26"
+                stroke="#30363D" stroke-width="1.2"/>
+          <path d="M16 6 L24 11 M16 16 L24 11 M16 16 L24 21 M16 26 L24 21"
+                stroke="#30363D" stroke-width="1.2"/>
+          <circle cx="8" cy="8" r="2.6" fill="#58A6FF"/>
+          <circle cx="8" cy="16" r="2.6" fill="#58A6FF"/>
+          <circle cx="8" cy="24" r="2.6" fill="#58A6FF"/>
+          <circle cx="16" cy="6" r="2.6" fill="#D29922"/>
+          <circle cx="16" cy="16" r="2.6" fill="#D29922"/>
+          <circle cx="16" cy="26" r="2.6" fill="#D29922"/>
+          <circle cx="24" cy="11" r="2.6" fill="#3FB950"/>
+          <circle cx="24" cy="21" r="2.6" fill="#3FB950"/>
+        </svg>
+        <span class="zk-brand-text">
+          <span class="zk-brand-name">ディープラーニング図鑑</span>
+          <span class="zk-brand-sub">数式ではなく、動きで理解する</span>
+        </span>
+      </a>
+      <nav class="zk-nav" aria-label="サイト内ナビゲーション">
+        <a href="/dl-zukan/">図鑑</a>
+        <a class="zk-nav-opt" href="/contents/">コンテンツ</a>
+        <a class="zk-nav-opt" href="/">zawato.github.io</a>
+        <a href="https://github.com/zawato" target="_blank" rel="noopener me">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- このファイルは zawato/dl-zukan/scripts/build_site.py が生成している。直接編集しても次回のビルドで消える。 -->
+<div class="zk-entry" style="--zk-chapter: var(--zk-role-data)">
+
+<p><a class="zk-back" href="./">← ディープラーニング図鑑の一覧</a></p>
+<div class="zk-entry-head">
+  <div class="zk-entry-no">03 · はじめに</div>
+  <h1 class="zk-entry-title">k-means法</h1>
+  <p class="zk-entry-sub">重心を動かしてグループを見つける</p>
+</div>
+
+<div class="zk-stage">
+  <video controls preload="none" playsinline poster="/videos/dl-zukan/kmeans.jpg">
+    <source src="/videos/dl-zukan/kmeans.mp4" type="video/mp4">
+    お使いのブラウザは動画再生に対応していません。
+  </video>
+</div>
+
+<p class="zk-summary">点をいくつかのグループに分ける教師なし学習の代表格。 重心の移動と割り当ての繰り返しで、ラベルなしでも構造が見つかる。</p>
+
+
+
+<section class="zk-related">
+  <div class="zk-section-label">Related</div>
+  <div class="zk-links">
+  <a class="zk-link-row" href="https://zawato.jp/data-science/ai/2413/" target="_blank" rel="noopener">k-means法の解説記事を読む <span>zawato.jp</span></a>
+  </div>
+</section>
+
+<nav class="zk-pager">
+  <a href="learning-types.html"><span class="zk-pager-label">← 前</span><span class="zk-pager-title">機械学習の3つの学習方法</span></a>
+  <a class="zk-pager-next" href="reinforcement.html"><span class="zk-pager-label">次 →</span><span class="zk-pager-title">強化学習</span></a>
+</nav>
+
+</div>
+
+
+  <footer class="zk-footer">
+    <div class="zk-footer-inner">
+      <p class="zk-footer-note">アニメーションは manim で作成。色の意味は全編で統一している。</p>
+      <p class="zk-footer-links">
+        <a href="/">zawato.github.io</a>
+        <a href="https://zawato.jp" target="_blank" rel="noopener me">zawato.jp</a>
+        <a href="https://github.com/zawato" target="_blank" rel="noopener me">GitHub</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // タグ絞り込み（一覧ページのみ動く。対象がなければ何もしない）
+    (function () {
+      var chips = document.querySelectorAll('.zk-chip');
+      if (!chips.length) return;
+
+      var cards = Array.prototype.slice.call(document.querySelectorAll('.zk-card'));
+      var blocks = Array.prototype.slice.call(document.querySelectorAll('.zk-chapter-block'));
+      var empty = document.querySelector('.zk-empty');
+
+      function apply(tag) {
+        var shown = 0;
+        cards.forEach(function (card) {
+          var tags = (card.dataset.tags || '').split(/\s+/);
+          var hit = !tag || tags.indexOf(tag) !== -1;
+          card.hidden = !hit;
+          if (hit) shown++;
+        });
+        blocks.forEach(function (block) {
+          var visible = block.querySelectorAll('.zk-card:not([hidden])').length;
+          block.hidden = visible === 0;
+        });
+        if (empty) empty.hidden = shown !== 0;
+      }
+
+      chips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          chips.forEach(function (other) {
+            other.setAttribute('aria-pressed', String(other === chip));
+          });
+          apply(chip.dataset.tag || '');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -9,6 +9,7 @@
 import { readFileSync, writeFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
+import { replaceMarker, escapeHtml, estimateReadMin, formatDate } from './_utils.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -18,38 +19,6 @@ const BLOG_RSS_URL    = process.env.BLOG_RSS_URL    || 'https://zawato.jp/feed/'
 const BLOG_BASE       = process.env.BLOG_BASE       || 'https://zawato.jp';
 const GITHUB_USER     = process.env.GITHUB_USER     || 'zawato';
 const GITHUB_API_BASE = 'https://api.github.com';
-
-// ── utils ──────────────────────────────────────────────────────────────────
-
-function replaceMarker(html, name, content) {
-  const re = new RegExp(
-    `(<!--\\s*${name}_START\\s*-->)[\\s\\S]*?(<!--\\s*${name}_END\\s*-->)`,
-    'g'
-  );
-  return html.replace(re, `$1\n${content}\n        $2`);
-}
-
-function escapeHtml(str) {
-  return String(str)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
-}
-
-function estimateReadMin(text) {
-  const words = text.replace(/<[^>]*>/g, '').length;
-  return Math.max(1, Math.round(words / 400));
-}
-
-function formatDate(dateStr) {
-  try {
-    const d = new Date(dateStr);
-    return d.toLocaleDateString('ja-JP', { year: 'numeric', month: 'short', day: 'numeric' });
-  } catch {
-    return '';
-  }
-}
 
 // ── fetchers ───────────────────────────────────────────────────────────────
 

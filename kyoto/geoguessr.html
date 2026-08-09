@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="京都府でGeoGuessrの高得点を狙うための地域識別Tips。5エリア別の視覚的手がかりと識別フロー。">
+  <meta name="author" content="zawato">
+  <link rel="canonical" href="https://zawato.github.io/kyoto/geoguessr/">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://zawato.github.io/kyoto/geoguessr/">
+  <meta property="og:title" content="京都府GeoGuessr攻略 | zawato">
+  <meta property="og:description" content="京都府でGeoGuessrの高得点を狙うための地域識別Tips。5エリア別の視覚的手がかりと識別フロー。">
+  <meta property="og:image" content="https://zawato.github.io/images/og.png">
+  <meta property="og:site_name" content="zawato.github.io">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="京都府GeoGuessr攻略 | zawato">
+  <meta name="twitter:description" content="京都府でGeoGuessrの高得点を狙うための地域識別Tips。5エリア別の視覚的手がかりと識別フロー。">
+  <meta name="twitter:image" content="https://zawato.github.io/images/og.png">
+
+  <title>京都府GeoGuessr攻略 | zawato</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="site-logo">zawato</a>
+      <nav class="header-nav" aria-label="メインナビゲーション">
+        <a href="https://zawato.jp" target="_blank" rel="noopener me">ブログ</a>
+        <a href="/contents/">コンテンツ</a>
+        <a href="/my-link/">リンク集</a>
+        <a href="https://github.com/zawato" target="_blank" rel="noopener me">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <a href="/contents/" class="back-link">
+      <i class="fas fa-arrow-left"></i> コンテンツ一覧に戻る
+    </a>
+
+    <div class="page-header">
+      <h1 class="page-title">京都府GeoGuessr攻略</h1>
+      <p class="page-subtitle"><i class="fas fa-calendar-alt"></i> 更新日: 2026年5月17日</p>
+      <div class="blog-tags"><span class="blog-tag">kyoto</span><span class="blog-tag">geoguessr</span><span class="blog-tag">geography</span></div>
+    </div>
+
+    <article class="content-body">
+      <h2>狙い</h2>
+<p>「京都府内」と判明している前提で、府内のどのエリアかを絞る精度を上げる。京都府は南北に長く、エリアで景色が全く異なるため、エリア識別が得点を左右する。</p>
+<hr>
+<h2>識別フロー（まず何を見るか）</h2>
+<pre><code>STEP 1: 海が見えるか？
+  → YES → 丹後（北部沿岸）確定に近い
+  → NO  → STEP 2へ
+
+STEP 2: 山の密度と集落の雰囲気は？
+  → 山深く霧・茅葺き民家 → 南丹（美山方面）
+  → 盆地+街 → 京都市 or 亀岡
+  → 比較的開けた川沿い農地 → 中丹（福知山・綾部）
+  → 茶畑が見える → 山城（宇治・和束）
+
+STEP 3: 街の規模・標識の地名で確認
+  → 「宇治」「城陽」→ 山城
+  → 「亀岡」「篠山」方面 → 南丹・亀岡
+  → 「福知山」「綾部」「舞鶴」→ 中丹・丹後
+</code></pre>
+<hr>
+<h2>視覚的手がかり集</h2>
+<h3>地形・植生</h3>
+<table>
+<thead>
+<tr>
+<th>手がかり</th>
+<th>示唆するエリア</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>茶畑（緑の段々畑）</td>
+<td>山城南部（宇治・和束・南山城）</td>
+</tr>
+<tr>
+<td>茅葺き古民家 + 霧</td>
+<td>南丹・美山</td>
+</tr>
+<tr>
+<td>リアス式海岸・漁港</td>
+<td>丹後（宮津・伊根）</td>
+</tr>
+<tr>
+<td>竹林が多い</td>
+<td>京都市（嵐山周辺）・南部全般</td>
+</tr>
+<tr>
+<td>由良川・大きな川の氾濫原</td>
+<td>中丹（福知山・綾部）</td>
+</tr>
+</tbody></table>
+<h3>道路・標識</h3>
+<table>
+<thead>
+<tr>
+<th>手がかり</th>
+<th>示唆するエリア</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>国道9号・山陰本線と並走</td>
+<td>亀岡〜南丹方面</td>
+</tr>
+<tr>
+<td>舞鶴若狭道の標識</td>
+<td>中丹・丹後アクセス帯</td>
+</tr>
+<tr>
+<td>「宇治茶」看板</td>
+<td>山城南部</td>
+</tr>
+<tr>
+<td>碁盤目の道路 + 古い町並</td>
+<td>京都市内（主に中京・上京）</td>
+</tr>
+</tbody></table>
+<h3>建物・インフラ</h3>
+<table>
+<thead>
+<tr>
+<th>手がかり</th>
+<th>示唆するエリア</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>伝統的町家（格子・うだつ）</td>
+<td>京都市内、亀岡旧市街</td>
+</tr>
+<tr>
+<td>海軍関連施設・赤レンガ</td>
+<td>舞鶴</td>
+</tr>
+<tr>
+<td>観光寺社が密集</td>
+<td>京都市中心部・嵐山・嵯峨野</td>
+</tr>
+<tr>
+<td>農業倉庫・農地が広い</td>
+<td>南丹・中丹</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>エリア別Tips</h2>
+<h3>京都市内</h3>
+<ul>
+<li><strong>盆地</strong>であることを意識。三方を山（北山・東山・西山）で囲まれている</li>
+<li>市内中心部は碁盤目。碁盤目が見えたら京都市確定に近い</li>
+<li>東山沿いは寺社密集帯。石畳・石塀が目立つ</li>
+<li>嵐山・嵯峨野は竹林と保津川</li>
+<li>北区・左京区北部は山深く、大原・鞍馬方面は山村に近い雰囲気</li>
+</ul>
+<h3>宇治・山城エリア</h3>
+<ul>
+<li><strong>茶畑</strong>が最大の識別ポイント。和束町は茶畑の密度が高い</li>
+<li>宇治川沿いは比較的開けた河川景観</li>
+<li>「木津川市」「笠置」方面はよりのどかな農村</li>
+<li>奈良県との境界近く、地形的には奈良盆地に近い雰囲気になる</li>
+</ul>
+<h3>亀岡・南丹エリア</h3>
+<ul>
+<li>亀岡は盆地。朝霧が多く「霧の都」ともいわれる</li>
+<li>保津川（桂川）が流れる</li>
+<li>美山は茅葺き民家の集落。観光地だが明らかに他エリアと景観が違う</li>
+<li>南丹市内は農村地帯。田んぼ・ため池が多い</li>
+</ul>
+<h3>舞鶴・福知山・丹後エリア</h3>
+<ul>
+<li><strong>舞鶴</strong>: 港湾都市。海自の艦船・赤レンガ倉庫が識別ポイント</li>
+<li><strong>福知山</strong>: 内陸盆地。由良川が流れる。北近畿の交通結節点</li>
+<li><strong>伊根</strong>: 舟屋（海面すれすれに建つ家）。見えたら伊根一択</li>
+<li><strong>天橋立</strong>: 砂州・松林。観光地なので画像でも特徴的</li>
+<li>丹後半島は農村+漁村の混在。リアス地形で細かな入り江が多い</li>
+</ul>
+<hr>
+<h2>練習メモ</h2>
+<p>GeoGuessrで京都府を引いたとき、気づいたことを随時追記する。</p>
+<hr>
+<p><a href="./index.md">← 京都府インデックスへ</a></p>
+
+    </article>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-brand">zawato</p>
+      <p class="footer-links">
+        <a href="https://zawato.jp" target="_blank" rel="noopener me">zawato.jp</a>
+        &nbsp;·&nbsp;
+        <a href="https://github.com/zawato" target="_blank" rel="noopener me">GitHub</a>
+        &nbsp;·&nbsp;
+        <a href="/">ホーム</a>
+      </p>
+      <p class="footer-copy">&copy; 2026 zawato. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
