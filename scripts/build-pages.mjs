@@ -29,6 +29,10 @@ const INDEX_PATH   = join(ROOT, 'index.html');
 const SITEMAP_PATH = join(ROOT, 'sitemap.xml');
 const DEFAULT_OG   = 'https://zawato.github.io/images/og.png';
 
+// サイトに出さないトピック。vault 側（zawato/github_pages/<topic>/）にソースは残す。
+// ここはポートフォリオとして見せる場所なので、趣味のコンテンツは載せない。
+const EXCLUDED_TOPICS = new Set(['kyoto', 'muscle', 'pasta']);
+
 // トピック専用のテンプレートがあればそれを使う（scripts/_template-<topic>.html）。
 // 無ければ全トピック共通の _template.html にフォールバックする。
 const templateCache = new Map();
@@ -281,7 +285,14 @@ async function main() {
   // vault の zawato/github_pages/ を走査（`_` 始まりのディレクトリは除外）
   const topics = readdirSync(PAGES_DIR, { withFileTypes: true })
     .filter(d => d.isDirectory() && !d.name.startsWith('_'))
-    .map(d => d.name);
+    .map(d => d.name)
+    .filter(topic => {
+      if (EXCLUDED_TOPICS.has(topic)) {
+        console.log(`  skip (excluded): ${topic}`);
+        return false;
+      }
+      return true;
+    });
 
   const pages = []; // コンテンツ一覧に載せる index ページのみ
 
