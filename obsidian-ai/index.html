@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ObsidianとClaude CodeでAIと共に考える仕組みを、6つのテーマに整理したnote記事のハブ。">
+  <meta name="author" content="zawato">
+  <link rel="canonical" href="https://zawato.github.io/obsidian-ai/">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://zawato.github.io/obsidian-ai/">
+  <meta property="og:title" content="AIと共に考える | zawato">
+  <meta property="og:description" content="ObsidianとClaude CodeでAIと共に考える仕組みを、6つのテーマに整理したnote記事のハブ。">
+  <meta property="og:image" content="https://zawato.github.io/images/og.png">
+  <meta property="og:site_name" content="zawato.github.io">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AIと共に考える | zawato">
+  <meta name="twitter:description" content="ObsidianとClaude CodeでAIと共に考える仕組みを、6つのテーマに整理したnote記事のハブ。">
+  <meta name="twitter:image" content="https://zawato.github.io/images/og.png">
+
+  <title>AIと共に考える | zawato</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="site-logo">zawato</a>
+      <nav class="header-nav" aria-label="メインナビゲーション">
+        <a href="https://zawato.jp" target="_blank" rel="noopener me">ブログ</a>
+        <a href="/contents/">コンテンツ</a>
+        <a href="/my-link/">リンク集</a>
+        <a href="https://github.com/zawato" target="_blank" rel="noopener me">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <a href="/contents/" class="back-link">
+      <i class="fas fa-arrow-left"></i> コンテンツ一覧に戻る
+    </a>
+
+    <div class="page-header">
+      <h1 class="page-title">AIと共に考える</h1>
+      <p class="page-subtitle"><i class="fas fa-calendar-alt"></i> 更新日: 2026年8月22日</p>
+      <div class="blog-tags"><span class="blog-tag">obsidian</span><span class="blog-tag">ai</span><span class="blog-tag">claude-code</span></div>
+    </div>
+
+    <article class="content-body">
+      <div class="content-lead">
+<p>Obsidian にメモを貯めて、Claude Code と一緒に考えるようになった。その過程で分かったことを note に書いている。記事が増えてきたので、テーマごとにここへまとめておく。</p>
+<p>上から順に読む必要はない。いま自分がやろうとしているところだけ拾ってもらえればいいと思う。</p>
+</div>
+
+<div class="oa-stats" style="display:flex;gap:1.5rem;flex-wrap:wrap;margin:1.5rem 0 2.5rem;padding:1rem 1.25rem;border:2px solid var(--border-card);border-radius:var(--radius);background:var(--bg-alt)">
+  <div><div style="font-size:1.5rem;font-weight:700;line-height:1.2;color:var(--primary)">46</div><div style="font-size:0.7rem;letter-spacing:0.08em;color:var(--text-muted)">ENTRIES</div></div>
+  <div><div style="font-size:1.5rem;font-weight:700;line-height:1.2;color:var(--primary)">6</div><div style="font-size:0.7rem;letter-spacing:0.08em;color:var(--text-muted)">THEMES</div></div>
+  <div><div style="font-size:1.5rem;font-weight:700;line-height:1.2;color:var(--primary)">2</div><div style="font-size:0.7rem;letter-spacing:0.08em;color:var(--text-muted)">PUBLISHED</div></div>
+</div>
+
+<p style="font-size:0.825rem;color:var(--text-muted);margin-bottom:2rem"><i class="fas fa-circle-info"></i> 濃い色のカードが公開済み。薄いカードはこれから順次公開していく予定のテーマ。</p>
+
+<section class="category-section">
+  <h2 class="oa-heading" style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.4rem"><i class="fas fa-box-archive" style="color:var(--primary);font-size:0.9em"></i>まず、考えたことを貯める</h2>
+  <p class="link-description" style="margin-bottom:1rem">AIに渡す前に、自分の考えが残る形を作る。ここが崩れていると後の工程が全部空回りする。</p>
+  <div class="links-grid">
+    <a href="https://note.com/zawato/n/n20f2c1f5abb6" target="_blank" rel="noopener" class="link-card" style="text-decoration:none">
+      <div class="link-content">
+        <h3 class="link-title">ObsidianとAIで、書いたメモが資産になった</h3>
+        <p class="link-description">貯めるだけだったメモを、AIが読める形に整えるまで。</p>
+      </div>
+      <div class="link-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div>
+    </a>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">Obsidianでフォルダ分けをやめてリンクだけで運用する</h3>
+        <p class="link-description">分類をやめ、ノート同士のリンクだけで構造を作る。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">Obsidianのデイリーノートは3見出しだけ</h3>
+        <p class="link-description">タスク・メモ・5行日記に固定して、書くことを迷わなくする。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">Obsidianのノートのタイトルには結論を書く</h3>
+        <p class="link-description">タイトルに結論を置くと、一覧がそのまま思考の索引になる。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">Obsidianのリンクに類比・対比・因果の型をつけた</h3>
+        <p class="link-description">なぜ繋げたかを1行書く運用にして、過剰な接続を止める。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">Obsidianの同期はiCloud、履歴はGitHub</h3>
+        <p class="link-description">同期と履歴を別のレイヤーに分けた理由。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">個人ボールトをGitHubに置く前に決めたこと</h3>
+        <p class="link-description">何を上げて何を外すか、置く前に決めた線引き。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">iCloud上のObsidianで自動pushが静かに死んだ</h3>
+        <p class="link-description">気づかないまま止まっていた自動化と、その検知方法。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">ノート400枚の規模で初めて壊れたもの</h3>
+        <p class="link-description">枚数が増えて初めて表に出てきた問題。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="category-section">
+  <h2 class="oa-heading" style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.4rem"><i class="fas fa-share-nodes" style="color:var(--primary);font-size:0.9em"></i>貯めたものをAIに渡す</h2>
+  <p class="link-description" style="margin-bottom:1rem">AI活用の差はツール選びよりも、どれだけ自分の文脈を渡せているかで決まる。</p>
+  <div class="links-grid">
+    <a href="https://note.com/zawato/n/nba83e555d842" target="_blank" rel="noopener" class="link-card" style="text-decoration:none">
+      <div class="link-content">
+        <h3 class="link-title">ObsidianにAIプラグインを入れていない理由</h3>
+        <p class="link-description">プラグインでなく、CLIのAIをボールトへ直接繋いでいる。</p>
+      </div>
+      <div class="link-arrow"><i class="fas fa-arrow-up-right-from-square"></i></div>
+    </a>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">AI活用はツール選びよりコンテキスト管理で決まる</h3>
+        <p class="link-description">同じモデルでも、渡す文脈の差で出力が変わる。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">AIへの自己紹介をやめて自動で流し込む</h3>
+        <p class="link-description">毎回の前置きをやめ、セッション開始時に自動で注入する。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">AIへの指示書を5つの記法だけで書く</h3>
+        <p class="link-description">TRIGGER・DO・LIMIT・FORBID・WHY の5語で書き方を統一する。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">AIへの禁止事項を足し続けると指示書が太る</h3>
+        <p class="link-description">禁止を積む代わりに、仕組み側で起きなくする。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">AIの指示書をモデル交代で壊れない形にする</h3>
+        <p class="link-description">モデルが変わっても解釈がぶれない書き方。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">AIとの会話が切れても続きから始める</h3>
+        <p class="link-description">セッションをまたいで文脈を引き継ぐ仕組み。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">ObsidianのデイリーノートだけはAIに触らせない</h3>
+        <p class="link-description">AIに渡さない領域を1つだけ決めておく。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">エージェントフレンドリーという情報の整え方</h3>
+        <p class="link-description">人間とAIの両方が読める形で情報を置く。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="category-section">
+  <h2 class="oa-heading" style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.4rem"><i class="fas fa-moon" style="color:var(--primary);font-size:0.9em"></i>夜のあいだに任せる</h2>
+  <p class="link-description" style="margin-bottom:1rem">毎晩AIがボールトを整理する仕組みを動かしている。うまくいった部分と、静かに失敗していた部分の両方。</p>
+  <div class="links-grid">
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">Obsidianのノートを毎晩AIに整理させている</h3>
+        <p class="link-description">毎晩0時に走るバッチが何をしているか。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">朝起きると昨日のメモがノートになっている</h3>
+        <p class="link-description">前日の断片が翌朝には形になっている状態。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">AIに無承認で書かせて1コミットに閉じる</h3>
+        <p class="link-description">承認なしで書かせる代わりに、1コミットで丸ごと戻せるようにする。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">AIに自分の仕様を書き換えさせている</h3>
+        <p class="link-description">AIが自分の指示書を改訂する。歯止めの掛け方も含めて。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">AIが4晩連続で同じ作業をスキップしていた</h3>
+        <p class="link-description">報告書だけを見ていて気づかなかった失敗。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">AIの報告と生成物は自分で確かめる</h3>
+        <p class="link-description">自己申告を鵜呑みにせず実測する習慣。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">Obsidianの孤立ノートが2ヶ月で半分になった</h3>
+        <p class="link-description">リンクの自動追加を続けた結果の数字。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">90日寝かせたノートをAIに浮上させる</h3>
+        <p class="link-description">古いノートを会話の流れで引き上げる仕掛け。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="category-section">
+  <h2 class="oa-heading" style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.4rem"><i class="fas fa-cloud-arrow-down" style="color:var(--primary);font-size:0.9em"></i>自分のデータを引き寄せる</h2>
+  <p class="link-description" style="margin-bottom:1rem">メール・カレンダー・購入履歴といった自分のデータを、集約先のボールトへ寄せていく。</p>
+  <div class="links-grid">
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">ライフログは取り返せないものから始める</h3>
+        <p class="link-description">後から取得できないデータを優先するという基準。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">マイデータは取る必要のないものから外す</h3>
+        <p class="link-description">集めるより先に、集めないものを決める。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">GmailとカレンダーをAIに繋いだ</h3>
+        <p class="link-description">MCP経由で自分のデータを会話の中で使う。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">APIがないサービスから自分のデータを取る</h3>
+        <p class="link-description">公式APIがない場合の取得方法と、その線引き。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">メールから5年分の購入履歴を掘り起こした</h3>
+        <p class="link-description">受信箱に埋まっていた履歴を構造化する。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">動画と音声をObsidianに取り込む</h3>
+        <p class="link-description">文字起こしとフレーム抽出をノートへ繋ぐ。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">画像はOCRを通さずAIにそのまま読ませる</h3>
+        <p class="link-description">OCRを挟まない方が精度が高かった話。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="category-section">
+  <h2 class="oa-heading" style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.4rem"><i class="fas fa-paper-plane" style="color:var(--primary);font-size:0.9em"></i>考えたものを外に出す</h2>
+  <p class="link-description" style="margin-bottom:1rem">貯めたノートを記事にするまでの工程と、AIにどこまで書かせるかの線引き。</p>
+  <div class="links-grid">
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">Obsidianのノートからブログ記事の種を掘る</h3>
+        <p class="link-description">リンクで繋がったノート群から記事候補を見つける。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">AIに記事を書かせず構成と清書だけ渡す</h3>
+        <p class="link-description">本文を書かせない代わりに任せている工程。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">AIと書くノートで自分の言葉を守る</h3>
+        <p class="link-description">自分の原文とAIの整理を混ぜない置き方。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">noteと個人ブログを書き分ける基準</h3>
+        <p class="link-description">背景と実装、どちらをどこに書くか。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">形に残すためにノートとブログを書く</h3>
+        <p class="link-description">書く目的をどこに置いているか。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">適当に書いた記事が引用された方が嬉しかった</h3>
+        <p class="link-description">力を入れた記事と、そうでない記事の反応の差。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="category-section">
+  <h2 class="oa-heading" style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.4rem"><i class="fas fa-lightbulb" style="color:var(--primary);font-size:0.9em"></i>やってみて、変わった考え</h2>
+  <p class="link-description" style="margin-bottom:1rem">2年ほど続けてみて、始める前の想定とずれた部分。</p>
+  <div class="links-grid">
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">自動化は定期実行のことではない</h3>
+        <p class="link-description">スケジュール実行をやめてトリガー起動に寄せた理由。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">続いた仕組みと続かなかった仕組みの差</h3>
+        <p class="link-description">儀式にしたものは止まり、会話に溶かしたものが残った。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">AIノート術で陳腐化するのはツール層だけ</h3>
+        <p class="link-description">道具が変わっても残る部分と、入れ替わる部分。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">人vsAIではなく人vsAIを使いこなす人</h3>
+        <p class="link-description">競争の構図をどこに置いて考えているか。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">AIに自分の思考パターンを蒸留させている</h3>
+        <p class="link-description">会話からAIが自分の判断パターンを書き起こす。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">AIに自分用の反省ログを持たせる</h3>
+        <p class="link-description">AIが自分のミスを記録して次に生かす仕組み。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+    <div class="link-card" style="opacity:0.55;box-shadow:none;border-style:dashed">
+      <div class="link-content">
+        <h3 class="link-title">AIを使いこなすために日記を書く</h3>
+        <p class="link-description">日記が、そのまま文脈の供給源になっている。</p>
+      </div>
+      <div class="link-arrow" style="align-self:flex-start"><span class="blog-tag">公開予定</span></div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<p>実装の手順やつまずいた箇所は <a href="https://zawato.jp" target="_blank" rel="noopener">ざわっとデータサイエンスブログ</a> に書いている。note には背景・考えたこと・運用した結果を置き、ブログには手順を置くという分け方をしている。</p>
+
+    </article>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-brand">zawato</p>
+      <p class="footer-links">
+        <a href="https://zawato.jp" target="_blank" rel="noopener me">zawato.jp</a>
+        &nbsp;·&nbsp;
+        <a href="https://github.com/zawato" target="_blank" rel="noopener me">GitHub</a>
+        &nbsp;·&nbsp;
+        <a href="/">ホーム</a>
+      </p>
+      <p class="footer-copy">&copy; 2026 zawato. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
