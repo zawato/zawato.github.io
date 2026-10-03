@@ -212,7 +212,7 @@
       settings.buffer = buffer;          // バッファは0秒可
       try { localStorage.setItem(STORAGE_KEY, JSON.stringify(settings)); } catch (_) {}
       fillInputs();
-      if (phase === 'idle') { remaining = settings.work * 1000; render(); }
+      if (phase === 'idle') { phaseDur = remaining = settings.work * 1000; render(); }
     }
     [els.workMin, els.workSec, els.bufMin, els.bufSec].forEach(input => {
       input.addEventListener('change', readInputs);
@@ -354,7 +354,8 @@
       els.themeColor.content = { work: '#22c55e', buffer: '#facc15', idle: '#ef4444' }[state];
 
       els.time.textContent = fmt(remaining);
-      els.progress.style.strokeDashoffset = CIRC * (1 - Math.min(1, remaining / phaseDur));
+      // 負のオフセットで欠けを12時から時計回りに広げる
+      els.progress.style.strokeDashoffset = -CIRC * (1 - Math.min(1, remaining / phaseDur));
 
       if (running) els.label.textContent = phase === 'work' ? '計測中' : 'バッファ';
       else els.label.textContent = phase === 'idle' ? '停止中' : '一時停止';
