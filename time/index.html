@@ -83,6 +83,8 @@
       gap: 4px;
     }
     .time {
+      display: flex;
+      align-items: center;
       font-size: min(17vw, 9.5dvh, 92px);
       font-weight: 600;
       font-variant-numeric: tabular-nums;
@@ -90,6 +92,40 @@
     }
     .label { font-size: 15px; color: var(--state); font-weight: 600; transition: color .2s; }
     .hint { font-size: 12px; color: var(--muted); min-height: 1em; }
+
+    /* 円内の数字＝設定欄（停止中だけ編集できる） */
+    .readout input {
+      width: 2ch;
+      padding: 0;
+      font: inherit;
+      text-align: center;
+      color: inherit;
+      -webkit-text-fill-color: currentColor;
+      opacity: 1;
+      background: transparent;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      transition: background .15s;
+    }
+    .readout input:enabled { cursor: text; }
+    .readout input:focus { background: var(--panel); }
+    .readout input:disabled { pointer-events: none; } /* 実行中のタップは一時停止へ通す */
+
+    .buffer {
+      position: absolute;
+      bottom: 19%;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .4em;
+      font-size: 16px; /* 16px以上でiOSの自動ズームを防ぐ */
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+    .buffer .name { font-size: 12px; color: var(--yellow); font-weight: 600; }
 
     /* ボタン */
     .buttons { display: flex; gap: 16px; width: min(100%, 420px); }
@@ -106,34 +142,6 @@
     #reset { background: var(--panel); color: var(--fg); border: 1px solid var(--track); }
     #toggle { background: var(--state); color: #0f1115; transition: background .2s; }
     .buttons button:active { transform: scale(.97); }
-
-    /* 設定 */
-    .settings { display: flex; flex-direction: column; gap: 10px; width: min(100%, 420px); }
-    .row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: var(--panel);
-      border-radius: 12px;
-      padding: 10px 14px;
-    }
-    .row span.name { font-size: 15px; color: var(--muted); }
-    .fields { display: flex; align-items: center; gap: 6px; font-size: 15px; color: var(--muted); }
-    .fields input {
-      width: 3.4em;
-      height: 40px;
-      font: inherit;
-      font-size: 18px; /* 16px以上でiOSの自動ズームを防ぐ */
-      text-align: center;
-      color: var(--fg);
-      background: var(--bg);
-      border: 1px solid var(--track);
-      border-radius: 8px;
-      -moz-appearance: textfield;
-    }
-    .fields input::-webkit-outer-spin-button,
-    .fields input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-    .fields input:disabled { opacity: .45; }
   </style>
 </head>
 <body data-state="idle">
@@ -146,9 +154,15 @@
         <circle class="progress" id="progress" cx="50" cy="50" r="45"></circle>
       </svg>
       <div class="readout">
-        <div class="time" id="time" role="timer" aria-live="off">00:00</div>
+        <div class="time" role="timer" aria-live="off">
+          <input id="workMin" type="text" inputmode="numeric" maxlength="2" autocomplete="off" aria-label="設定時間（分）"><span>:</span><input id="workSec" type="text" inputmode="numeric" maxlength="2" autocomplete="off" aria-label="設定時間（秒）">
+        </div>
         <div class="label" id="label">停止中</div>
         <div class="hint" id="hint"></div>
+        <div class="buffer">
+          <span class="name">バッファ</span>
+          <span><input id="bufMin" type="text" inputmode="numeric" maxlength="2" autocomplete="off" aria-label="バッファ（分）">:<input id="bufSec" type="text" inputmode="numeric" maxlength="2" autocomplete="off" aria-label="バッファ（秒）"></span>
+        </div>
       </div>
     </div>
 
@@ -156,30 +170,13 @@
       <button id="reset" type="button">リセット</button>
       <button id="toggle" type="button">スタート</button>
     </div>
-
-    <div class="settings">
-      <label class="row">
-        <span class="name">設定時間</span>
-        <span class="fields">
-          <input id="workMin" type="number" inputmode="numeric" min="0" max="99"> 分
-          <input id="workSec" type="number" inputmode="numeric" min="0" max="59"> 秒
-        </span>
-      </label>
-      <label class="row">
-        <span class="name">バッファ</span>
-        <span class="fields">
-          <input id="bufMin" type="number" inputmode="numeric" min="0" max="99"> 分
-          <input id="bufSec" type="number" inputmode="numeric" min="0" max="59"> 秒
-        </span>
-      </label>
-    </div>
   </main>
 
   <script>
   (() => {
     const $ = id => document.getElementById(id);
     const els = {
-      time: $('time'), label: $('label'), hint: $('hint'), progress: $('progress'),
+      label: $('label'), hint: $('hint'), progress: $('progress'),
       reset: $('reset'), toggle: $('toggle'),
       workMin: $('workMin'), workSec: $('workSec'), bufMin: $('bufMin'), bufSec: $('bufSec'),
       themeColor: document.querySelector('meta[name="theme-color"]'),
@@ -197,12 +194,14 @@
     } catch (_) {}
 
     const clampInt = (v, lo, hi) => Math.min(hi, Math.max(lo, Math.floor(Number(v) || 0)));
+    const pad = n => String(n).padStart(2, '0');
+    const inputs = [els.workMin, els.workSec, els.bufMin, els.bufSec];
 
     function fillInputs() {
-      els.workMin.value = Math.floor(settings.work / 60);
-      els.workSec.value = settings.work % 60;
-      els.bufMin.value = Math.floor(settings.buffer / 60);
-      els.bufSec.value = settings.buffer % 60;
+      els.workMin.value = pad(Math.floor(settings.work / 60));
+      els.workSec.value = pad(settings.work % 60);
+      els.bufMin.value = pad(Math.floor(settings.buffer / 60));
+      els.bufSec.value = pad(settings.buffer % 60);
     }
 
     function readInputs() {
@@ -214,9 +213,11 @@
       fillInputs();
       if (phase === 'idle') { phaseDur = remaining = settings.work * 1000; render(); }
     }
-    [els.workMin, els.workSec, els.bufMin, els.bufSec].forEach(input => {
+    inputs.forEach(input => {
+      input.addEventListener('input', () => { input.value = input.value.replace(/\D/g, ''); });
       input.addEventListener('change', readInputs);
-      input.addEventListener('focus', () => input.select());
+      input.addEventListener('focus', () => setTimeout(() => input.select(), 0));
+      input.addEventListener('keydown', e => { if (e.key === 'Enter') input.blur(); });
     });
 
     // ── 音（Web Audio） ─────────────────────────────────
@@ -322,6 +323,7 @@
       remaining = phaseDur;
       cancelSounds();
       unlockScreen();
+      fillInputs();
       render();
     }
 
@@ -343,27 +345,27 @@
       remaining = phaseEnd - now;
     }
 
-    function fmt(ms) {
-      const s = Math.ceil(ms / 1000);
-      return `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`;
-    }
-
     function render() {
       const state = running ? phase : 'idle';
       document.body.dataset.state = state;
       els.themeColor.content = { work: '#22c55e', buffer: '#facc15', idle: '#ef4444' }[state];
 
-      els.time.textContent = fmt(remaining);
+      // 開始後は設定欄をそのまま残り時間の表示に使う（停止中は設定値＝残り時間）
+      const locked = phase !== 'idle';
+      inputs.forEach(i => { i.disabled = locked; });
+      if (locked) {
+        const s = Math.ceil(remaining / 1000);
+        els.workMin.value = pad(Math.floor(s / 60));
+        els.workSec.value = pad(s % 60);
+      }
       // 負のオフセットで欠けを12時から時計回りに広げる
       els.progress.style.strokeDashoffset = -CIRC * (1 - Math.min(1, remaining / phaseDur));
 
       if (running) els.label.textContent = phase === 'work' ? '計測中' : 'バッファ';
       else els.label.textContent = phase === 'idle' ? '停止中' : '一時停止';
-      els.hint.textContent = running ? 'タップで一時停止' : '';
+      els.hint.textContent = running ? 'タップで一時停止' : (locked ? '' : '数字をタップで編集');
 
       els.toggle.textContent = running ? 'ストップ' : (phase === 'idle' ? 'スタート' : '再開');
-      const locked = phase !== 'idle';
-      [els.workMin, els.workSec, els.bufMin, els.bufSec].forEach(i => { i.disabled = locked; });
     }
 
     function loop() { tick(); if (running) render(); requestAnimationFrame(loop); }
