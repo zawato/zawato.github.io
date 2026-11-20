@@ -33,6 +33,48 @@ const DEFAULT_OG   = 'https://zawato.github.io/images/og.png';
 // ここはポートフォリオとして見せる場所なので、趣味のコンテンツは載せない。
 const EXCLUDED_TOPICS = new Set(['kyoto', 'muscle', 'pasta']);
 
+// zawato.jp へ移したトピック（2026-11-20 ディープラーニング図鑑）。ソースは vault の別の場所にあり、ここでは作らない。
+// 旧URL（/<topic>/ と /<topic>/<slug>.html）には転送用の中継ページを置き、一覧のカードは移設先へ直接リンクする。
+// GitHub Pages はサーバー側の 301 を出せないので、即時の meta refresh＋canonical で移設先を示す（Google は即時 refresh を恒久転送として扱う。noindex は付けない）。
+const MOVED_TOPICS = {
+  'dl-zukan': {
+    url: 'https://zawato.jp/dl-zukan/',
+    title: 'ディープラーニング図鑑',
+    description: 'ディープラーニングの技術を1つずつアニメーションで見て理解する図鑑（zawato.jp）。',
+    // 旧 /dl-zukan/<slug>.html → 新 /dl-zukan/<slug>/（slug は図鑑の entries のフォルダ名と同じ）
+    sub: (slug) => `https://zawato.jp/dl-zukan/${slug}/`,
+  },
+};
+
+function movedPageHTML(to, title) {
+  const href = escapeHtml(to);
+  return `<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${escapeHtml(title)}は移転しました</title>
+  <link rel="canonical" href="${href}">
+  <meta http-equiv="refresh" content="0; url=${href}">
+  <script>location.replace(${JSON.stringify(to)} + location.hash);</script>
+</head>
+<body>
+  <p>${escapeHtml(title)}は <a href="${href}">${href}</a> に移転しました。</p>
+</body>
+</html>
+`;
+}
+
+function writeMovedTopic(topic, moved) {
+  const dir = join(ROOT, topic);
+  mkdirSync(dir, { recursive: true });
+  const slugs = readdirSync(dir).filter(n => n.endsWith('.html') && n !== 'index.html').map(n => n.slice(0, -5));
+  writeFileSync(join(dir, 'index.html'), movedPageHTML(moved.url, moved.title), 'utf8');
+  for (const slug of slugs) writeFileSync(join(dir, `${slug}.html`), movedPageHTML(moved.sub(slug), moved.title), 'utf8');
+  console.log(`✓ ${topic}/（移転の中継 ${slugs.length + 1} ページ → ${moved.url}）`);
+  return { slug: topic, data: { title: moved.title, description: moved.description }, href: moved.url };
+}
+
 // トピック専用のテンプレートがあればそれを使う（scripts/_template-<topic>.html）。
 // 無ければ全トピック共通の _template.html にフォールバックする。
 const templateCache = new Map();
@@ -111,7 +153,7 @@ function buildPageHTML(topic, slug, data, content) {
 // ── コンテンツ一覧ページ ────────────────────────────────────────────────────
 
 function buildContentsPageHTML(pages) {
-  const cards = pages.map(({ slug, data }) => {
+  const cards = pages.map(({ slug, data, href }) => {
     const title       = data.title       || slug;
     const description = data.description || '';
     const updated     = data.updated     ? String(data.updated) : '';
@@ -122,7 +164,7 @@ function buildContentsPageHTML(pages) {
       ? `<span class="post-card-date"><i class="fas fa-calendar-alt"></i> ${escapeHtml(formatDate(updated))}</span>`
       : '';
 
-    return `    <a href="/${escapeHtml(slug)}/" class="link-card">
+    return `    <a href="${escapeHtml(href || `/${slug}/`)}" class="link-card">
       <div class="link-content">
         <h3 class="link-title">${escapeHtml(title)}</h3>
         <p class="link-description">${escapeHtml(description)}</p>
@@ -222,7 +264,7 @@ function updateSitemap(pages) {
   // まず既存の PAGES ブロックを丸ごと置き換え
   const pagesXml = [
     { loc: 'https://zawato.github.io/contents/', priority: '0.8' },
-    ...pages.map(p => ({ loc: `https://zawato.github.io/${p.slug}/`, priority: '0.7' })),
+    ...pages.filter(p => !p.href).map(p => ({ loc: `https://zawato.github.io/${p.slug}/`, priority: '0.7' })),
   ].map(({ loc, priority }) => `  <url>
     <loc>${loc}</loc>
     <lastmod>${today}</lastmod>
@@ -253,10 +295,10 @@ function updateIndexContents(pages) {
     return;
   }
 
-  const cards = pages.slice(0, 4).map(({ slug, data }) => {
+  const cards = pages.slice(0, 4).map(({ slug, data, href }) => {
     const title       = data.title       || slug;
     const description = data.description || '';
-    return `        <a href="/${escapeHtml(slug)}/" class="link-card">
+    return `        <a href="${escapeHtml(href || `/${slug}/`)}" class="link-card">
           <div class="link-content">
             <h3 class="link-title">${escapeHtml(title)}</h3>
             <p class="link-description">${escapeHtml(description)}</p>
@@ -287,6 +329,10 @@ async function main() {
     .filter(d => d.isDirectory() && !d.name.startsWith('_'))
     .map(d => d.name)
     .filter(topic => {
+      if (MOVED_TOPICS[topic]) {
+        console.log(`  skip (moved): ${topic} — vault 側の古いソースは使わない`);
+        return false;
+      }
       if (EXCLUDED_TOPICS.has(topic)) {
         console.log(`  skip (excluded): ${topic}`);
         return false;
@@ -315,6 +361,8 @@ async function main() {
       if (isIndex) pages.push(page);
     }
   }
+
+  for (const [topic, moved] of Object.entries(MOVED_TOPICS)) pages.unshift(writeMovedTopic(topic, moved));
 
   // contents/index.html
   const contentsDir = join(ROOT, 'contents');
