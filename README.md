@@ -1,9 +1,8 @@
 # zawato.github.io
 
-個人ブログ [zawato.jp](https://zawato.jp) への導線ハブ兼ポートフォリオサイト。
+zawato のポートフォリオ。トップ（`index.html`＋`css/portfolio.css`）は1ページで、プロフィール・資格・作品を一望させる。
 
-GitHub Actions が毎日 zawato.jp の RSS と GitHub API から最新記事・リポジトリ情報を取得し、`index.html` を自動更新する。
-手動更新は `Actions > Update Site Content > Run workflow` から実行できる。
+トップは手書きの静的HTMLで、自動更新はしない（2026-11-21 に毎日の RSS・GitHub API 取得をやめた）。作品の説明やブログの外観画像（`images/blog-top.jpg`）は手で更新する。
 
 ## コンテンツページの追加方法
 

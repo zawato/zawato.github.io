@@ -3,320 +3,144 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="zawato のポートフォリオサイト。データサイエンス・プログラミング・資格をテーマにしたブログ zawato.jp の運営者。">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>zawato - Portfolio</title>
+  <meta name="description" content="zawato のポートフォリオ。データサイエンス・AIの技術ブログ、ディープラーニング図鑑、Claude認定資格の模擬問題集などの制作物と資格をまとめています。">
   <meta name="author" content="zawato">
   <link rel="canonical" href="https://zawato.github.io/">
 
-  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
-  <!-- Open Graph -->
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://zawato.github.io/">
-  <meta property="og:title" content="zawato - Data Scientist & Programmer">
-  <meta property="og:description" content="データサイエンス・プログラミング・資格をテーマにしたブログ zawato.jp の運営者。スキルやプロジェクトをまとめたポートフォリオサイトです。">
+  <meta property="og:title" content="zawato - Portfolio">
+  <meta property="og:description" content="データサイエンス・AIの技術ブログ、ディープラーニング図鑑、Claude認定資格の模擬問題集などの制作物と資格をまとめたポートフォリオ。">
   <meta property="og:image" content="https://zawato.github.io/images/og.png">
   <meta property="og:site_name" content="zawato.github.io">
   <meta property="profile:username" content="zawato">
-
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="zawato - Data Scientist & Programmer">
-  <meta name="twitter:description" content="データサイエンス・プログラミング・資格をテーマにしたブログ zawato.jp の運営者。">
+  <meta name="twitter:site" content="@zawato7">
+  <meta name="twitter:title" content="zawato - Portfolio">
+  <meta name="twitter:description" content="データサイエンス・AIの技術ブログ、ディープラーニング図鑑、Claude認定資格の模擬問題集などの制作物と資格をまとめたポートフォリオ。">
   <meta name="twitter:image" content="https://zawato.github.io/images/og.png">
 
-  <!-- RSS alternate -->
-  <link rel="alternate" type="application/rss+xml" title="zawato.jp" href="https://zawato.jp/feed/">
-
-  <title>zawato - Portfolio</title>
-
-  <!-- JSON-LD: Person -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "zawato",
-    "url": "https://zawato.github.io",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://zawato.jp"
-    },
+    "url": "https://zawato.github.io/",
+    "image": "https://zawato.github.io/images/zawapen.svg",
     "sameAs": [
-      "https://zawato.jp",
-      "https://github.com/zawato"
+      "https://zawato.jp/",
+      "https://github.com/zawato",
+      "https://note.com/zawato",
+      "https://x.com/zawato7"
     ],
-    "knowsAbout": ["Data Science", "Machine Learning", "Python", "Programming", "Certification"]
+    "knowsAbout": ["Data Science", "Machine Learning", "Deep Learning", "Generative AI", "Statistics", "Python"]
   }
   </script>
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- Custom Styles -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+JP:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="css/portfolio.css">
 </head>
 
 <body>
+<div class="wrap">
 
-  <!-- Site Header -->
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="/" class="site-logo">zawato</a>
-      <nav class="header-nav" aria-label="メインナビゲーション">
-        <a href="https://zawato.jp" target="_blank" rel="noopener me">ブログ</a>
-        <a href="contents/">コンテンツ</a>
-        <a href="my-link/">リンク集</a>
-        <a href="https://github.com/zawato" target="_blank" rel="noopener me">GitHub</a>
-      </nav>
+  <section class="profile" aria-label="プロフィール">
+    <div class="id">
+      <div class="avatar"><img src="images/zawapen.svg" alt="ざわぺん" width="64" height="64"></div>
+      <div>
+        <h1>zawato</h1>
+        <div class="role">データ分析 ／ 生成AI活用 ／ 技術発信</div>
+      </div>
     </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-inner">
-      <div class="hero-profile">
-        <div class="avatar">
-          <img src="images/avatar.svg" alt="zawato" width="80" height="80">
-        </div>
-        <div>
-          <h1 class="hero-name">zawato</h1>
-          <p class="hero-tagline">
-            <span id="typedText"></span><span class="cursor">|</span>
-          </p>
+    <nav class="social" aria-label="SNS">
+      <a href="https://x.com/zawato7" target="_blank" rel="noopener me" aria-label="X">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a href="https://note.com/zawato" target="_blank" rel="noopener me" aria-label="note"><span class="note">note</span></a>
+      <a href="https://github.com/zawato" target="_blank" rel="noopener me" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+    </nav>
+    <p class="lead">データ分析と生成AIの知識を、学ぶ人がつまずかない形の教材とサイトにして届けている。企画から公開まで一人で回し、品質は検証の仕組みで守る。</p>
+    <div class="facts">
+      <div class="fact">
+        <span class="label">Certifications</span>
+        <div class="certs">
+          <span class="cert" title="応用情報技術者試験">AP</span>
+          <span class="cert" title="AWS Certified Solutions Architect – Associate">AWS SAA</span>
+          <span class="cert" title="AWS Certified Machine Learning Engineer – Associate">AWS MLA</span>
+          <span class="cert" title="JDLA Deep Learning for GENERAL">G検定</span>
+          <span class="cert" title="Claude認定資格">CCAO-F</span>
         </div>
       </div>
-      <div class="hero-badges">
-        <span class="badge"><i class="fas fa-chart-line"></i> Data Science</span>
-        <span class="badge"><i class="fas fa-code"></i> Programming</span>
-        <span class="badge"><i class="fas fa-certificate"></i> Certification</span>
-      </div>
-      <div class="hero-cta">
-        <a href="https://zawato.jp" class="btn btn-primary" target="_blank" rel="noopener me">
-          <i class="fas fa-blog"></i> ブログを読む
-        </a>
-        <a href="my-link/" class="btn btn-outline">
-          <i class="fas fa-link"></i> リンク集
-        </a>
+      <div class="fact">
+        <span class="label">Career</span>
+        <span>データ分析・生成AI活用の実務</span>
       </div>
     </div>
   </section>
 
-  <!-- Main Content -->
-  <main class="main-content">
+  <div class="sec"><h2>Works</h2><span>すべて企画から公開・運用まで一人で担当</span></div>
 
-    <!-- Latest Posts Section -->
-    <section class="category-section latest-posts-section">
-      <h2 class="section-title">最新記事</h2>
-      <div class="latest-posts-grid">
-        <!-- LATEST_POSTS_START -->
-<a href="https://zawato.jp/qualification/2784/" class="post-card" target="_blank" rel="noopener">
-          
-          <div class="post-card-body">
-            <p class="post-card-title">ピアソンVUEテストセンターの持ち物と本人確認書類｜受験当日の流れ</p>
-            <span class="post-card-meta">
-              <i class="fas fa-calendar-alt"></i>
-              <span class="post-card-date">2026年11月4日</span>
-              <span class="post-card-read">1 min</span>
-            </span>
-          </div>
-        </a>
-        <a href="https://zawato.jp/qualification/2783/" class="post-card" target="_blank" rel="noopener">
-          
-          <div class="post-card-body">
-            <p class="post-card-title">Claude認定資格CCAO-Fの勉強方法 | 使用教材や難易度、試験概要について解説【2026年合格体験記】</p>
-            <span class="post-card-meta">
-              <i class="fas fa-calendar-alt"></i>
-              <span class="post-card-date">2026年11月3日</span>
-              <span class="post-card-read">1 min</span>
-            </span>
-          </div>
-        </a>
-        <a href="https://zawato.jp/data-science/ai/2782/" class="post-card" target="_blank" rel="noopener">
-          
-          <div class="post-card-body">
-            <p class="post-card-title">生成AIを使う前に知っておきたい課題</p>
-            <span class="post-card-meta">
-              <i class="fas fa-calendar-alt"></i>
-              <span class="post-card-date">2026年8月2日</span>
-              <span class="post-card-read">1 min</span>
-            </span>
-          </div>
-        </a>
-        <!-- LATEST_POSTS_END -->
-      </div>
-      <div class="latest-posts-more">
-        <a href="https://zawato.jp" class="btn btn-outline-sm" target="_blank" rel="noopener me">
-          <i class="fas fa-list"></i> 記事一覧を見る
-        </a>
-      </div>
-    </section>
-
-    <!-- Blog Section -->
-    <section class="category-section">
-      <h2 class="section-title">ブログ</h2>
-      <a href="https://zawato.jp" class="blog-feature-card" target="_blank" rel="noopener me">
-        <div class="blog-feature-inner">
-          <div class="blog-feature-icon">
-            <i class="fas fa-blog"></i>
-          </div>
-          <div class="blog-feature-body">
-            <h3 class="blog-feature-title">zawato.jp</h3>
-            <p class="blog-feature-desc">データサイエンス・機械学習・プログラミング・資格取得をテーマにした技術ブログです。実務で得た知見や学習記録を発信しています。</p>
-            <div class="blog-tags">
-              <span class="blog-tag">データサイエンス</span>
-              <span class="blog-tag">機械学習</span>
-              <span class="blog-tag">プログラミング</span>
-              <span class="blog-tag">資格</span>
-            </div>
-          </div>
-          <div class="blog-feature-arrow">
-            <i class="fas fa-chevron-right"></i>
-          </div>
-        </div>
-      </a>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats-section" aria-label="実績">
-      <!-- STATS_START -->
-<div class="stat-card">
-        <div class="stat-icon"><i class="fas fa-pen-nib"></i></div>
-        <div class="stat-value" data-target="176">176</div>
-        <div class="stat-label">記事</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon"><i class="fab fa-github"></i></div>
-        <div class="stat-value" data-target="21">21</div>
-        <div class="stat-label">リポジトリ</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon"><i class="fas fa-star"></i></div>
-        <div class="stat-value" data-target="5">5</div>
-        <div class="stat-label">年の経験</div>
-      </div>
-        <!-- STATS_END -->
-    </section>
-
-    <!-- Skills Section -->
-    <section class="category-section">
-      <h2 class="section-title">スキル</h2>
-      <div class="skills-grid">
-        <div class="skill-group">
-          <h3 class="skill-group-title"><i class="fas fa-database"></i> データサイエンス</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">R</span>
-            <span class="skill-tag">SQL</span>
-            <span class="skill-tag">Pandas</span>
-            <span class="skill-tag">NumPy</span>
-            <span class="skill-tag">scikit-learn</span>
-            <span class="skill-tag">TensorFlow</span>
-            <span class="skill-tag">統計解析</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <h3 class="skill-group-title"><i class="fas fa-tools"></i> エンジニアリング</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">Linux</span>
-            <span class="skill-tag">Docker</span>
-            <span class="skill-tag">Jupyter</span>
-            <span class="skill-tag">Matplotlib</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Top Repos Section -->
-    <section class="category-section top-repos-section">
-      <h2 class="section-title">主要リポジトリ</h2>
-      <div class="links-grid">
-        <!-- TOP_REPOS_START -->
-<a href="https://github.com/zawato" class="link-card" target="_blank" rel="noopener me">
-          <div class="link-icon"><i class="fab fa-github"></i></div>
-          <div class="link-content">
-            <h3 class="link-title">GitHub</h3>
-            <p class="link-description">すべてのリポジトリを見る</p>
-          </div>
-          <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
-        </a>
-        <!-- TOP_REPOS_END -->
-      </div>
-    </section>
-
-    <!-- Contents Section -->
-    <section class="category-section">
-      <h2 class="section-title">コンテンツ</h2>
-      <div class="links-grid">
-        <!-- CONTENTS_START -->
-        <a href="https://zawato.jp/dl-zukan/" class="link-card">
-          <div class="link-content">
-            <h3 class="link-title">ディープラーニング図鑑</h3>
-            <p class="link-description">ディープラーニングの技術を1つずつアニメーションで見て理解する図鑑（zawato.jp）。</p>
-          </div>
-          <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
-        </a>
-        <a href="/obsidian-ai/" class="link-card">
-          <div class="link-content">
-            <h3 class="link-title">AIと共に考える</h3>
-            <p class="link-description">ObsidianとClaude CodeでAIと共に考える仕組みを、シリーズのカテゴリごとに辿れるnote記事のハブ。</p>
-          </div>
-          <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
-        </a>
-        <div style="text-align:right;margin-top:0.75rem">
-          <a href="/contents/" class="btn btn-outline-sm"><i class="fas fa-list"></i> すべて見る</a>
-        </div>
-        <!-- CONTENTS_END -->
-      </div>
-    </section>
-
-    <!-- Links Section -->
-    <section class="category-section">
-      <h2 class="section-title">リンク</h2>
-      <div class="links-grid">
-        <a href="https://github.com/zawato" class="link-card" target="_blank" rel="noopener me">
-          <div class="link-icon">
-            <i class="fab fa-github"></i>
-          </div>
-          <div class="link-content">
-            <h3 class="link-title">GitHub</h3>
-            <p class="link-description">オープンソースプロジェクトやコードサンプル</p>
-          </div>
-          <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
-        </a>
-        <a href="my-link/" class="link-card">
-          <div class="link-icon">
-            <i class="fas fa-layer-group"></i>
-          </div>
-          <div class="link-content">
-            <h3 class="link-title">リンク集</h3>
-            <p class="link-description">SNS・ブログ・プロジェクトへのリンク一覧</p>
-          </div>
-          <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
-        </a>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <p class="footer-brand">zawato</p>
-      <p class="footer-links">
-        <a href="https://zawato.jp" target="_blank" rel="noopener me">zawato.jp</a>
-        &nbsp;·&nbsp;
-        <a href="https://github.com/zawato" target="_blank" rel="noopener me">GitHub</a>
-        &nbsp;·&nbsp;
-        <a href="my-link/">リンク集</a>
-      </p>
-      <p class="footer-copy">&copy; 2026 zawato. All rights reserved.</p>
+  <article class="card feature">
+    <a class="shot" href="https://zawato.jp/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="images/blog-top.jpg" alt="" width="1600" height="1000"></a>
+    <div class="body">
+      <h3>ざわっとデータサイエンス</h3>
+      <p class="summary">データサイエンス・AI・統計・資格を、初学者が順番に読み進められるように解説する技術ブログ。2024年6月から180本超を公開。</p>
+      <dl class="points">
+        <div><dt>見どころ</dt><dd>「AIの仕組みを基礎から学ぶ」「統計検定準1級の対策」「自分に合うAWS資格を選ぶ」など、目的別のロードマップから読む順番が分かる。</dd></div>
+        <div><dt>活かした力</dt><dd>専門知識を初学者向けの構成と図解に組み立て直す力。企画・執筆からサイト構築、検索データを使った改善まで一人で回している。</dd></div>
+      </dl>
+      <div class="chips"><span class="chip">Astro</span><span class="chip">Cloudflare Workers</span><span class="chip">Python</span><span class="chip">Claude Code</span><span class="chip">Search Console</span><span class="chip">GA4</span></div>
+      <a class="btn" href="https://zawato.jp/" target="_blank" rel="noopener me">ブログを読む →</a>
     </div>
-  </footer>
+  </article>
 
-  <script src="js/main.js"></script>
+  <div class="grid3">
+    <article class="card">
+      <h3>ディープラーニング図鑑</h3>
+      <p class="summary">ディープラーニングの技術23項目を、20〜33秒のアニメーションで1つずつ見せる図鑑。</p>
+      <dl class="points">
+        <div><dt>見どころ</dt><dd>数式を追わずに「何が起きているか」を目で追える。データ・重み・出力・誤差の色は全編で共通なので、前の項目で覚えた見方が次でも使える。</dd></div>
+        <div><dt>活かした力</dt><dd>抽象的な仕組みを、絵コンテからコードで動きに落とし込む力。解説記事21本と行き来できる教材として仕上げた。</dd></div>
+      </dl>
+      <div class="chips"><span class="chip">Python</span><span class="chip">manim</span><span class="chip">Claude Code</span></div>
+      <a class="btn" href="https://zawato.jp/dl-zukan/" target="_blank" rel="noopener">図鑑を見る →</a>
+    </article>
+
+    <article class="card">
+      <h3>AIと共に創る</h3>
+      <p class="summary">Obsidian と Claude Code で、書いたメモをAIと育てる運用を「集める・育てる・保つ・任せる・活かす」の流れでまとめた連載。</p>
+      <dl class="points">
+        <div><dt>見どころ</dt><dd>日記・フォルダ・画像・メールといった場面ごとに、AIに任せることと任せないことの線引きを具体的に示している。</dd></div>
+        <div><dt>活かした力</dt><dd>生成AIを日々の作業に組み込む設計力。指示書・夜間の自動整理・誤りを取り消す安全策まで自分で作り、毎日運用している。</dd></div>
+      </dl>
+      <div class="chips"><span class="chip">Claude Code</span><span class="chip">Obsidian</span><span class="chip">launchd</span></div>
+      <a class="btn" href="https://zawato.jp/data-science/ai/2791/" target="_blank" rel="noopener">連載を読む →</a>
+    </article>
+
+    <article class="card">
+      <h3>Claude認定資格 模擬問題集</h3>
+      <p class="summary">Claude認定資格4試験の非公式問題集。日本語解説つきの300問を、無料・登録不要で解ける。</p>
+      <dl class="points">
+        <div><dt>見どころ</dt><dd>1問ずつの練習と、60問・120分の模試の両方で使える。解説には判断のポイントと公式ドキュメントへのリンクを付けた。</dd></div>
+        <div><dt>活かした力</dt><dd>試験ガイドの出題範囲を分解して全項目を網羅する教材設計と、他の問題集と全問を照合して重複を除く品質管理。</dd></div>
+      </dl>
+      <div class="chips"><span class="chip">Astro</span><span class="chip">Cloudflare Workers</span><span class="chip">Claude Code</span></div>
+      <a class="btn" href="https://zawato.jp/claude-certification/" target="_blank" rel="noopener">問題を解く →</a>
+    </article>
+  </div>
+
+</div>
+
+<footer>© 2026 zawato</footer>
 </body>
 
 </html>
